@@ -20,6 +20,8 @@ nav span {
   font-family: 'Bungee', sans-serif;
 }
 
-nav i {
+nav div .new-tweet {
+  display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
 }
