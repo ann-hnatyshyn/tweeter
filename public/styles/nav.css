@@ -13,15 +13,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5em;
-  display:flex;
+  position: fixed;
 }
 
 nav span {
   font-family: 'Bungee', sans-serif;
 }
 
-nav div .new-tweet {
+nav new-tweet {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
 }
