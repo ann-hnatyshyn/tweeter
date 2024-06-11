@@ -29,7 +29,7 @@ body {
  main {
   width: 90%;
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: inherit;
   display: flex;
   align-items: center;
- }
+}
