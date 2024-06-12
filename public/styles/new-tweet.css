@@ -8,3 +8,15 @@ main {
   font-size: 18px;
   font-family: 'Bungee', sans-serif;
 }
+
+form {
+  /* Add your styles here */
+}
+
+form textarea {
+  /* Add your styles here */
+}
+
+form button {
+  /* Add your styles here */
+}
