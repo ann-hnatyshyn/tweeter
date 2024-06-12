@@ -1,26 +1,22 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 nav {
   height: 120px;
   width: 100%;
+  padding: 1.5em;
   background-color: #4056A1;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5em;
   position: fixed;
+  font-family: sans-serif;
 }
 
 nav span {
   font-family: 'Bungee', sans-serif;
 }
 
-nav i {
-  display: flex;
-  justify-content: flex-end;
+.new-tweet {
+  font-size: 1.25em; 
+  margin: 2em; 
+  padding: 1em;
 }
