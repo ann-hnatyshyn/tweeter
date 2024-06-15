@@ -32,10 +32,8 @@
   <body>
     <nav>
       <span>tweeter</span>
-      <div class= "new-tweet"></div>
-        Write a new tweet
-        <br>
-       <div class="fa-solid fa-angles-down" style="color: #ff0505"></div>
+      <div class= "new-tweet">Write a new tweet</div>
+      <div class="fa-solid fa-angles-down" style="color: #ff0505"></div>
     </nav>
     <header>
       <div>
@@ -48,17 +46,18 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-    <section class="new-tweet">
-      <h3>Compose Tweet</h3>
-      <form action="/tweets" method="post">
-        <h6 for="tweet-text">What are you humming about?</h6>
-        <hr>
-        <textarea name="text" id="tweet-text"></textarea>
-        <br>
-        <button type="submit"style="color:#FFFFFF;">Tweet</button>
-        <output name="counter" class="counter" for="tweet-text">140</output>
-      </form>
-    </section>
+      <section class="compose-tweet">
+        <form action="/tweets/" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+        <div>
+          <textarea type="text"name="text"id="tweet-text"></textarea>
+        </div>
+        <div>
+          <button type="submit">Tweet</button>
+        </div>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </form>
+      </section>
     </main>
   </body>
 </html>

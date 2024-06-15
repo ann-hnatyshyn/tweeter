@@ -1,22 +1,48 @@
-main {
-  width: 100%;
-  color: #545149;
+
+h2 {
   background-color: inherit;
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 18px;
+  font-family: sans-serif;
+}
+
+/* form {
+  width: 100%;
+  color:	#545149;
+  display: flex;
+} */
+
+label {
+  width: 100%;
+  color:	#545149;
+  display: flex;  
+  font-size: 19px;
+  font-family: sans-serif;
+}
+
+textarea {
+  width: 50;
+  color:	#545149;
+  display: flex;
+}
+
+button {
+  width: 7%;
+  color:	#ffffff;
+  background-color: #4056A1; 
+  display: flex;
+  justify-content: flex-start;
+  font-size: 17px;
   font-family: 'Bungee', sans-serif;
+  margin: ;
 }
 
-form {
-  /* Add your styles here */
-}
-
-form textarea {
-  /* Add your styles here */
-}
-
-form button {
-  /* Add your styles here */
+output {
+  width: 95%;
+  color:	#545149;
+  display: flex;
+  align-items: right aligned counter;
+  justify-content: flex-end;
+  font-size: 20px;
+  font-family:'Bungee', sans-serif;
 }

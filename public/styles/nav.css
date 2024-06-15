@@ -3,20 +3,25 @@ nav {
   width: 100%;
   padding: 1.5em;
   background-color: #4056A1;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: fixed;
-  font-family: sans-serif;
 }
 
-nav span {
-  font-family: 'Bungee', sans-serif;
+span {
+  display: flex;
+  font-family: Bungee;
+  align-items: flex-end;
+  color: #FFFFFF;
 }
 
 .new-tweet {
-  font-size: 1.25em; 
-  margin: 2em; 
-  padding: 1em;
+  color: #FFFFFF;
+  display: flex;        
+  font-size: 20px; 
+  font-family: sans-serif;
+  justify-content: flex-end;
+}
+
+.fa-solidfa {     
+  display: flex;
+  justify-content: flex-end;
 }
