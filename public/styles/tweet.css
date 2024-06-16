@@ -1,0 +1,21 @@
+/*new tweet box*/
+article.tweet header {
+  display: flex;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid #000 1px;
+  margin: 10px 10px;
+}
+
+
+
+/*icons*/
+tweet-icons {
+  color: #4056A1;     
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}

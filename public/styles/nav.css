@@ -10,8 +10,9 @@ nav {
 /*Tweeter title*/
 span {
   display: flex;
-  font-family: Bungee;
+  justify-content: flex-start;
   align-items: flex-end;
+  font-family: Bungee;
   color: #FFFFFF;
 }
 
@@ -21,5 +22,12 @@ span {
   display: flex;        
   font-size: 20px; 
   font-family: sans-serif;
+  justify-content: right;
+}
+
+/*red down arrow*/
+.fa-solid.fa-angles-down {
+  display: flex;
   justify-content: flex-end;
+  align-content: center;
 }

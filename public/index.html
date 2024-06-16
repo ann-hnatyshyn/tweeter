@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -31,11 +33,13 @@
   </head>
 
   <body>
+
     <nav>
       <span>tweeter</span>
       <div class= "new-tweet">Write a new tweet</div>
-      < class="fa-solid fa-angles-down" style="color: #ff0505"></div>
+      <div class="fa-solid fa-angles-down"style="color: #ff0505"></div>
     </nav>
+
     <header>
       <div>
         <img src="/images/profile-hex.png">
@@ -45,9 +49,8 @@
         <h2>Ann H</h2>
       </div>
     </header>
-    <!-- Page-specific (main) content here -->
+
     <main class="container">
-      <section class="compose-tweet">
         <form action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>
         <div>
@@ -58,8 +61,19 @@
         </div>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </form>
-        <tweet>Hello</tweet>
-      </section>
+
+        <article class="tweet">
+          <header></header>
+          <footer>
+          <div class="tweet-icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          </footer>
+        </article>
+
     </main>
+
   </body>
 </html>

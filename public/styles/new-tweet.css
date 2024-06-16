@@ -7,24 +7,18 @@ h2 {
   font-family: sans-serif;
 }
 
-/* form {
-  width: 100%;
-  color:	#545149;
-  display: flex;
-} */
-
 /*What are you humming about?*/
 label {
   width: 100%;
   color:	#545149;
-  font-size: 19px;
+  font-size: 17px;
   font-family: sans-serif;
   display: flex;
   margin: 10px 10px;
 }
 
 /*text line*/
-textarea {
+/* textarea {
   display: flex;
   outline: none;
   outline-style: none;
@@ -33,17 +27,18 @@ textarea {
   border-right: none;
   border-bottom: solid #000 1px;
   margin: 10px 10px;
-}
+} */
 
 /*tweet button*/
 button {
-  width: 7%;
+   border: 2px solid #4056A1;
+  border-radius: 5px;
   color:	#ffffff;
   background-color: #4056A1; 
   display: flex;
   justify-content: center;
   margin: 10px 10px;
-  font-size: 17px;
+  font-size: 16px;
   font-family: 'Bungee', sans-serif;
 }
 
