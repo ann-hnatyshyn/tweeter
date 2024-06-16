@@ -63,26 +63,24 @@
           <output name="counter" class="counter" for="tweet-text">140</output>
         </form>
     </main>
-
-        <article class="tweet">
+        <section>
           <header>
             <div class="image">
-              <img src="/images/profile-hex.png">
+              <img src="${tweet.user.avatars}">
             </div>
-            <h3>@user</h3>
+            <div class="tweet-header-text">
+              <h2>${tweet.user.name}</h2>
+              <p>${tweet.user.handle}</p>
+            </div>
           </header>
-        </article>
-
-        <section class='tweet-text'>
+          <p>${tweet.created_at}</p>
           <footer>
-            <h3>10 days ago</h3>
-          <div class="icons">
-            <i name="flag" class="fa-solid fa-flag"></i>
-            <i name="retweet"class="fa-solid fa-retweet"></i>
-            <i name="heart"class="fa-solid fa-heart"></i>
-          </div>
+            <div class="icons">
+             <i name="flag" class="fa-solid fa-flag"></i>
+             <i name="retweet"class="fa-solid fa-retweet"></i>
+             <i name="heart"class="fa-solid fa-heart"></i>
+            </div>
           </footer>
         </section>
-
   </body>
 </html>

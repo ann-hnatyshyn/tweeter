@@ -3,7 +3,6 @@
 .tweet {
   background-color: cornsilk;
   display: flex;
-  outline: none;
   outline-style: solid;
   border-top: solid #000 2px;
   border-left: solid #000 2px;
