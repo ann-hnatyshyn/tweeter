@@ -1,16 +1,18 @@
 $(document).ready(function() {
-  const maxChars = 140;
+  console.log("composer-char-counter.js is loaded");
 
-  $("#text-area").on("keyup", function() {
-    const textLength = $(this).val().length;
-    const charsRemaining = maxChars - textLength;
+  $('.textarea').on('input', function() {
+    const maxLength = 140;
+    const currentLength = $(this).val().length;
+    const remainingLength = maxLength - currentLength;
 
-    $("#char-count").text(charsRemaining);
+    const counter = $(this).closest('.new-tweet').find('.counter');
+    counter.text(remainingLength);
 
-    if (charsRemaining < 0) {
-      $("#char-count").addClass("red");
+    if (remainingLength < 0) {
+      counter.addClass('over-limit');
     } else {
-      $("#char-count").removeClass("red");
+      counter.removeClass('over-limit');
     }
   });
 });

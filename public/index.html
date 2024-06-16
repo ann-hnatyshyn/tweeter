@@ -22,6 +22,7 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/scripts/composer-char-counter.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/public/scripts/client.js"></script>
@@ -33,7 +34,7 @@
     <nav>
       <span>tweeter</span>
       <div class= "new-tweet">Write a new tweet</div>
-      <div class="fa-solid fa-angles-down" style="color: #ff0505"></div>
+      < class="fa-solid fa-angles-down" style="color: #ff0505"></div>
     </nav>
     <header>
       <div>
@@ -50,13 +51,14 @@
         <form action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>
         <div>
-          <textarea type="text"name="text"id="tweet-text"></textarea>
+          <textarea type="text"class="text-line"></textarea>
         </div>
         <div>
           <button type="submit">Tweet</button>
         </div>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </form>
+        <tweet>Hello</tweet>
       </section>
     </main>
   </body>

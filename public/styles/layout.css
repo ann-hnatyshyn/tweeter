@@ -10,16 +10,28 @@ html {
   box-sizing: inherit;
 }
 
-
+/*background under blue bar*/
 body {
   color: #545149;
   background-color: cornsilk;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   padding-top: 120px;
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/*text line*/
+textarea {
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  outline: none; /* Remove the default blue outline when focused */
+  width: 50%; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  padding: 5px; /* Adjust padding as needed */
+  resize: none; /* Prevent resizing if needed */
 }
 
 
