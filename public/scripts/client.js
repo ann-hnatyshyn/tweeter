@@ -45,11 +45,11 @@ const createTweetElement = function(tweet) {
   <article class="tweet">
 <header>
   <div class="image">
-    <img src="${tweet.profilePicture}">
+    <img src="${tweet.user.avatars}">
   </div>
   <div class="tweet-header-text">
-    <h2>${tweet.name}</h2>
-    <p>@${tweet.handle} · ${tweet.time}</p>
+    <h2>${tweet.user.name}</h2>
+    <p>@${tweet.user.handle} · ${tweet.created_at}</p>
   </div>
 </header>
 <p>${tweet.content}</p>
@@ -65,8 +65,4 @@ const createTweetElement = function(tweet) {
 
   return $tweet;
 };
-
 renderTweets(data);
-
-console.log($tweet);
-$('#tweets-container').append($tweet)
