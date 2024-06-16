@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css"/>
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -63,12 +64,19 @@
         </form>
 
         <article class="tweet">
-          <header></header>
+          <header>
+            <span>
+              <img class='avatar' src='http://example.com/img'/>
+            </span>
+            <h3>@user</h3>
+          </header>
+          <section class='tweet-text'>this is my tweet</section>
           <footer>
-          <div class="tweet-icons">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
+            <span>10 days ago</span>
+          <div class="icons">
+            <i name="flag" class="fa-solid fa-flag"></i>
+            <i name="retweet"class="fa-solid fa-retweet"></i>
+            <i name="heart"class="fa-solid fa-heart"></i>
           </div>
           </footer>
         </article>

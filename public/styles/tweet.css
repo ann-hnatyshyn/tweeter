@@ -13,9 +13,17 @@ article.tweet header {
 
 
 /*icons*/
-tweet-icons {
+icons {
   color: #4056A1;     
   display: flex;
   justify-content: flex-end;
   align-content: center;
 }
+.icons i:hover {
+  color: red;
+}
+
+.tweet:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
