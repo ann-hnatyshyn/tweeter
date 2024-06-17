@@ -52,26 +52,31 @@
     </header>
 
     <main class="container">
-        <form action="/tweets/" method="POST">
+      <form id="target" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
-        <div>
-          <textarea type="text"class="text-line"></textarea>
-        </div>
+          <input type="text" value="Hello there">
+          <input type="submit" value="Go">
+          <div id="other">
+            <textarea type="text"class="text-line"></textarea>
+          </div>
         <div>
           <button type="submit">Tweet</button>
         </div>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </form>
     </main>
+        
+          <!--This section represents an individual tweet -->
         <section>
           <header>
             <div class="image">
-              <img src="${tweet.user.avatars}">
+              <img src="${tweet.user.avatars}" />
             </div>
             <div class="tweet-header-text">
               <h2>${tweet.user.name}</h2>
               <p>${tweet.user.handle}</p>
             </div>
+            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
           </header>
           <p>${tweet.created_at}</p>
           <footer>
@@ -82,5 +87,6 @@
             </div>
           </footer>
         </section>
+
   </body>
 </html>

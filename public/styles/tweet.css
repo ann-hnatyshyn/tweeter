@@ -20,26 +20,26 @@
   display: flex;
   justify-content: left;
   align-content: left;
-}
+} */
 
 /*user name*/
-.tweet.h3 {
+h3 {
   color:	#545149;   
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
   padding: 1.5em;
-}
+} */
 
 /*10 days ago*/
-.tweet-text.h3 {
+ h3 {
   color: #545149;
   display: flex;
   justify-content: flex-end;
   align-content: center;
   font-size: 10px;
   font-family: 'Bungee', sans-serif;
-}
+} */
 
 .icons {
   color: #4056A1;     
