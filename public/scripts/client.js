@@ -3,7 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-import $ from 'jquery';
+
+import $ from 'jquery'
+window.$ = $
+import('./utility/init') 
+import { format } from 'timeago.js';
 
 
 const renderTweets = function(tweets) {
@@ -29,7 +33,8 @@ const createTweetElement = function(tweet) {
     <p>@${tweet.user.handle} · ${tweet.created_at}</p>
   </div>
 </header>
-<p>${tweet.content}</p>
+<p>${tweet.content.text}</p>
+<div>format(Date.now() - 11 * 1000 * 60 * 60);</div>
 <footer>
   <div class="icons">
    <i name="flag" class="fa-solid fa-flag"></i>
@@ -72,14 +77,11 @@ $(document).$(function() { {
   });
 });
 
-const loadTweets = function() {
-
-};
 
 function loadTweets() {
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/tweets",
+    url: "/tweets",
     success: function(tweets) {
       console.log("Tweets fetched successfully:", tweets);
       // Clear the tweets container
@@ -98,24 +100,18 @@ function loadTweets() {
 
 loadTweets();
 
+$(document).ready(function() {
+  $('#tweetForm').submit(function(event) {
+    // Get the value of the tweet content
+    const tweetContent = $('#tweetContent').val();
 
-//timeago format - to see time since last tweet//
-import { format } from 'timeago.js';
-
-// format timestamp
-format(1544666010224);
-
-// format date instance
-format(new Date(1544666010224));
-
-// format date string
-format('2018-12-12');
-
-// format with locale
-format(1544666010224, 'zh_CN');
-
-// format with locale and relative date
-format(1544666010224, 'zh_CN', { relativeDate: '2018-11-11' });
-
-// e.g.
-format(Date.now() - 11 * 1000 * 60 * 60); // returns '11 hours ago'
+    // Check if the tweet is empty or exceeds 140 characters
+    if (!tweetContent) {
+      alert('Error: Tweet content is required.');
+      event.preventDefault(); // Prevent form submission
+    } else if (tweetContent.length > 140) {
+      alert('Error: Tweet content exceeds 140 characters.');
+      event.preventDefault(); // Prevent form submission
+    }
+  });
+});
