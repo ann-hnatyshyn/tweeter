@@ -1,51 +1,41 @@
-
-/*new tweet box*/
-.tweet {
-  background-color: cornsilk;
-  display: flex;
-  outline-style: solid;
-  border-top: solid #000 2px;
-  border-left: solid #000 2px;
-  border-right: solid #000 2px;
-  border-bottom: solid #000 2px;
-  margin: 10px 10px;
+main {
+  grid-column-start: 2;
+  grid-column-end: five;
+  grid-row-start: row1-start;
+  grid-row-end: 3;
 }
+
+/* image*/
+image {  
+  display: flex;
+  justify-content: left;
+  align-content: left;
+}
+/*tweet container*/
+
+
+tweet-header-text
 
 .tweet:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-/*image*/
-.tweet-image {  
-  display: flex;
-  justify-content: left;
-  align-content: left;
-} */
+
 
 /*user name*/
-h3 {
+.h2 {
   color:	#545149;   
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start;
   align-content: flex-start;
-  padding: 1.5em;
+  padding: 1.5em; */
 } */
 
-/*10 days ago*/
- h3 {
-  color: #545149;
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  font-size: 10px;
-  font-family: 'Bungee', sans-serif;
-} */
+/*footer - icons*/
 
 .icons {
   color: #4056A1;     
   display: flex;
-  justify-content: flex-end;
-  align-content: center;
   padding: 1.5em;
 }
 .icons i:hover {

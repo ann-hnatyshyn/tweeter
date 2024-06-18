@@ -1,3 +1,6 @@
+
+/*profile pic with name*/
+
 header {
   height: 400px;
   width: 100%;
@@ -12,9 +15,11 @@ header {
 
 /*myname*/
 h2 {
-  display: flex;
-  font-size: 18px;
+  font-size: 20px;
   font-family: sans-serif;
 }
+
+
+
 
 

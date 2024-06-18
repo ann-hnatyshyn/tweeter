@@ -1,3 +1,9 @@
+ {
+  width: 100%;
+  background-color: cornsilk;
+  display: flex;
+  justify-content: center;
+}
 
 /*What are you humming about?*/
 label {
@@ -6,6 +12,20 @@ label {
   font-family: sans-serif;
   display: flex;
   margin: 10px 10px;
+  padding: 5%;
+}
+
+/*text line*/
+textarea {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  width: 100%; 
+  height: 30px; 
+  font-size: 20px; 
+  margin: 10px 10px;
+  resize: none; 
 }
 
 /*tweet button*/
@@ -21,25 +41,12 @@ button {
   font-family: 'Bungee', sans-serif;
 }
 
-/*text line*/
-textarea {
-  border: none;
-  outline: none;
-  border-bottom: 2px solid black;
-  background-color: transparent;
-  width: 90%; 
-  height: 30px; 
-  font-size: 20px; 
-  margin: 10px 10px;
-  resize: none; 
-}
-
 /*number 140*/
 output {
   display: flex;
-  justify-content: flex-end;
   color:	#545149;
   font-size: 20px;
   font-family:'Bungee', sans-serif;
-  padding: 1.5em;
+  margin: 10px 10px;
+  justify-content: flex-end;
 }

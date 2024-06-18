@@ -1,17 +1,16 @@
-/*Blue bar at top*/
+
 nav {
+  display: flex;
+  grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
   height: 120px;
   width: 100%;
   padding: 1.5em;
   background-color: #4056A1;
-  position: fixed;
 }
 
 /*Tweeter title*/
 span {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
   font-family: Bungee;
   color: #FFFFFF;
 }
@@ -22,12 +21,11 @@ span {
   display: flex;        
   font-size: 20px; 
   font-family: sans-serif;
-  justify-content: right;
 }
 
 /*red down arrow*/
 .fa-solid.fa-angles-down {
   display: flex;
-  justify-content: flex-end;
-  align-content: center;
 }
+
+
