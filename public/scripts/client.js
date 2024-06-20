@@ -4,25 +4,23 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 import $ from 'jquery'
 window.$ = $
 import('./utility/init') 
-import { format } from 'timeago.js';
-
+import { format, render, cancel, register } from 'timeago.js';
 
 const renderTweets = function(tweets) {
-
-  const $tweetsContainer = $('#tweet');
-  $("#tweet").empty();
-
+  $('#tweets-container').empty();
   for (const tweet of tweets) {
     const $tweetElement = createTweetElement(tweet);
-    $tweetsContainer.append($tweetElement);
+    $('#tweets-container').append($tweetElement);
   };
 };
 
-const createTweetElement = function(tweet) {
-  let $tweet = $(`
+function createTweetElement(tweet) {
+  const timeAgo = timeAgo.format(new Date(tweet.created_at));
+  return `
   <article class="tweet">
 <header>
   <div class="image">
@@ -34,8 +32,8 @@ const createTweetElement = function(tweet) {
   </div>
 </header>
 <p>${tweet.content.text}</p>
-<div>format(Date.now() - 11 * 1000 * 60 * 60);</div>
 <footer>
+<span class="tweet-time">${timeAgo}</span>
   <div class="icons">
    <i name="flag" class="fa-solid fa-flag"></i>
    <i name="retweet"class="fa-solid fa-retweet"></i>
@@ -43,75 +41,52 @@ const createTweetElement = function(tweet) {
   </div>
 </footer>
 </section>
-</article>`);
-
-  return $tweet;
+</article>
+`
 };
 
 renderTweets(data);
-
-$(document).$(function() { {
-
-  const $form = $("#new-tweet-form");
-
-  $form.on("submit", function(event) {
-
-    event.preventDefault();
-    
-    const serializedData = $(this).serialize();
-
+$(document).ready(function() {
+  function loadTweets() {
     $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: serializedData,
-      success: function(response) {
-        console.log("Tweet successfully submitted:", response);
-     
-        $("#tweets-container").prepend(createTweetElement(response));
+      url: '/http://localhost:8080/',
+      method: 'POST',
+      dataType: 'json',
+      success: function(tweets) {
+        renderTweets(tweets);
       },
-      error: function(error) {
-       
-        console.error("Error submitting tweet:", error);
+      error: function(err) {
+        console.error('Error fetching tweets:', err);
       }
     });
-  });
-});
-
-
-function loadTweets() {
-  $.ajax({
-    type: "GET",
-    url: "/tweets",
-    success: function(tweets) {
-      console.log("Tweets fetched successfully:", tweets);
-      // Clear the tweets container
-      $("#tweets").empty();
-
-      for (const tweet of tweets) {
-        const $tweetElement = createTweetElement(tweet);
-        $("#tweets").append($tweetElement);
+  }
+  loadTweets();
+  // Form submit handler
+  $('#tweet-form').on('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    const tweetText = $('#tweet-text').val().trim();
+    // Validation
+    let newTweet = $('<div class="tweet"></div>').text(tweetContent);
+    if (!tweetText) {
+      return alert('Tweet content cannot be empty.');
+    }
+    if (tweetText.length > 140) {
+      return alert('Tweet content cannot exceed 140 characters.');
+    }
+    // If validation passes, proceed with form submission
+    const tweetData = $(this).serialize();
+    $.ajax({
+      url: '/http://localhost:8080/',
+      method: 'POST',
+      data: tweetData,
+      success: function() {
+        loadTweets();
+        $('#tweet-text').val(''); // Clear the form
+        $('.counter').text('140'); // Reset the character counter
+      },
+      error: function(err) {
+        console.error('Error submitting tweet:', err);
       }
-    },
-    error: function(error) {
-      console.error("Error fetching tweets:", error);
-    }
-  });
-}
-
-loadTweets();
-
-$(document).ready(function() {
-  $('#tweetForm').submit(function(event) {
-    // Get the value of the tweet content
-    const tweetContent = $('#tweetContent').val();
-
-    // Check if the tweet is empty or exceeds 140 characters
-    if (!tweetContent) {
-      alert('Error: Tweet content is required.');
-      event.preventDefault(); // Prevent form submission
-    } else if (tweetContent.length > 140) {
-      alert('Error: Tweet content exceeds 140 characters.');
-      event.preventDefault(); // Prevent form submission
-    }
+    });
   });
 });

@@ -1,45 +1,60 @@
-main {
-  grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: row1-start;
-  grid-row-end: 3;
+/*Tweet container */
+section.tweets-container {
+  margin-top: 20px;
+  padding: 10px;
 }
 
-/* image*/
-image {  
-  display: flex;
-  justify-content: left;
-  align-content: left;
+section.tweets-container article.tweet {
+  border: 5px solid black;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 15px;
 }
-/*tweet container*/
 
-
-tweet-header-text
-
-.tweet:hover {
+section.tweets-container article.tweet:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+/*image */
+header.tweet-header .image img { 
+  border-radius: 50%;
+}
 
-
-/*user name*/
-.h2 {
-  color:	#545149;   
+header.tweet-header {
   display: flex;
-  /* justify-content: flex-start;
-  align-content: flex-start;
-  padding: 1.5em; */
-} */
+  align-items: center;
+  background-color: cornsilk;
+  background-image: none;
+}
+  
+header.tweet-header .image {
+  margin-right: 10px;
+}
 
-/*footer - icons*/
+header.tweet-header-text {
+  color: #545149;   
+  display: flex;
+  flex-direction: column;
+}
 
-.icons {
+header.tweet-header-text h3, header.tweet-header-text span {
+  margin: 0;
+}
+
+/* Tweet content */
+p.tweet-content {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Footer - icons */
+footer.tweet-footer .icons {
+  display: flex;
+  justify-content: flex-end;
   color: #4056A1;     
-  display: flex;
   padding: 1.5em;
 }
-.icons i:hover {
+
+footer.tweet-footer .icons i:hover {
   color: #FFD700;
 }
-
-

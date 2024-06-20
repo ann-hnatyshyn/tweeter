@@ -15,16 +15,17 @@
     "chance": "^1.0.2",
     "express": "^4.19.2",
     "jquery": "^3.7.1",
-    "md5": "^2.1.0"
+    "md5": "^2.1.0",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "nodemon": "^1.9.2"
   },
-    "env": {
-      "es6": true
-    },
-    "parserOptions": {
-      "type": "module"
-    }
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "type": "module"
+  }
 }

@@ -22,16 +22,16 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css"/>
+ 
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
-     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="dist/timeago.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/public/scripts/client.js"></script>
     <script type="text/javascript" src="/public/scripts/composer-char-counter.js"></script>
+
   
   </head>
 
@@ -54,41 +54,39 @@
     </header>
 
     <main>
+      <label>What are you humming about?</label>
       <form id="target" action="/tweets/">
-          <label for="tweet-text">What are you humming about?</label>
-          <div id="other">
-            <textarea type="text"class="text-line"></textarea>
+          <div>
+            <textarea for="tweet-text"type="text"class="text-line"></textarea>
           </div>
         <div>
           <button type="submit">Tweet</button>
         </div>
           <output name="counter" class="counter" for="tweet-text">140</output>
-      </form>
-    </main>
-        
+      </form> 
           <!--This section represents an individual tweet -->
-        <section>
-          <header class="">
-            <div class="image">
-              <img src="${tweet.user.avatars}" />
-            </div>
-            <div class="tweet-header-text">
-              <h2>${tweet.user.name}</h2>
-              <p>${tweet.user.handle}</p>
-            </div>
-            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-          </header>
-
-          <p></p> 
-
-          <footer>
-            <div class="icons">
-             <i name="flag" class="fa-solid fa-flag"></i>
-             <i name="retweet"class="fa-solid fa-retweet"></i>
-             <i name="heart"class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
+          <section class="tweets-container">
+            <article class="tweet">
+              <header class="tweet-header">
+                <div class="image">
+                  <img src="https://via.placeholder.com/50" alt="User Image">
+                </div>
+                <div class="tweet-header-text">
+                  <h3>Username</h3>
+                  <span>@userHandle</span>
+                </div>
+              </header>
+              <p class="tweet-content">This is the content of the tweet.</p>
+              <footer class="tweet-footer">
+                <div class="icons">
+                  <i class="fa-solid fa-flag"></i>
+                  <i class="fa-solid fa-retweet"></i>
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+              </footer>
+            </article>
+            <!-- End of Single Tweet -->
         </section>
-
+      </main>
   </body>
 </html>
