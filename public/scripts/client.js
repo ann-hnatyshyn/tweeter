@@ -6,11 +6,17 @@
 
 
 import $ from 'jquery'
-window.$ = $
+const { JSDOM } = require('jsdom');
+const { window } = new JSDOM(`<!DOCTYPE html><html><body></body></html>`);
+const $ = require('jquery')(window);
+
 import('./utility/init') 
 import { format } from 'timeago';
+import * as timeago from 'timeago.js';
 
-const renderTweets = function(tweets) {
+timeago(format);
+
+function renderTweets (tweets) {
   $('#tweets-container').empty();
   for (const tweet of tweets) {
     const $tweetElement = createTweetElement(tweet);
@@ -47,6 +53,26 @@ function createTweetElement(tweet) {
 renderTweets(data);
 
 $(document).ready(function() {
+  console.log('Document is ready');
+  const maxChars = 140;
+  
+  $('#tweet-text').on('input', function() {
+    const charCount = $(this).val().length;
+    const remainingChars = maxChars - charCount;
+    
+    // Update the counter
+    $('.counter').text(remainingChars);
+    
+    // If the character count exceeds the limit, change the color of the counter
+    if (remainingChars < 0) {
+      $('.counter').addClass('over-limit');
+    } else {
+      $('.counter').removeClass('over-limit');
+    }
+  })
+});
+
+$(document).ready(function() {
   function loadTweets() {
     $.ajax({
       url: '/tweets/',
@@ -61,12 +87,16 @@ $(document).ready(function() {
     });
   }
   loadTweets();
+
   // Form submit handler
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
+    $('#error-message').text(''); //clear the error message
     $('#error-message').slideUp(); // Hide error message before validation
     $("<div>").text(textFromUser); //prevent CSS
+    
     const tweetText = $('#tweet-text').val().trim();
+
     // Validation
     if (!tweetText) {
       return showError('Tweet content cannot be empty.');
@@ -74,8 +104,6 @@ $(document).ready(function() {
     if (tweetText.length > 140) {
       return showError('Tweet content cannot exceed 140 characters.');
     }
-
-    
     // If validation passes, proceed with form submission
     const tweetData = $(this).serialize();
     $.ajax({
@@ -88,8 +116,10 @@ $(document).ready(function() {
         $('.counter').text('140'); // Reset the character counter
       },
       err: function(err) {
-        $('#error-message').text(message).slideDown();
+        $('#error-message').text("please type your tweet again").slideDown();
       }
     });
   });
 });
+
+
