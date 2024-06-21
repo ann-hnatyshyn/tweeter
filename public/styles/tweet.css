@@ -1,7 +1,9 @@
+
 /*Tweet container */
 section.tweets-container {
   margin-top: 20px;
   padding: 10px;
+  display: flex;
 }
 
 section.tweets-container article.tweet {
