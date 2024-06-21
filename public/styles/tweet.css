@@ -53,6 +53,7 @@ footer.tweet-footer .icons {
   justify-content: flex-end;
   color: #4056A1;     
   padding: 1.5em;
+  font-size: small;
 }
 
 footer.tweet-footer .icons i:hover {

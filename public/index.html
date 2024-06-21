@@ -36,7 +36,7 @@
   </head>
 
   <body>
-    
+
     <nav>
       <span>tweeter</span>
       <div class= "new-tweet">Write a new tweet</div>
@@ -56,16 +56,17 @@
     <main>
       <label>What are you humming about?</label>
       <form id="target" action="/tweets/">
-          <div>
-            <textarea for="tweet-text"type="text"class="text-line"></textarea>
-          </div>
+        <div>
+          <textarea for="tweet-text"type="text"class="text-line"></textarea>
+        </div>
+        <div id="error-message" class="error-message" style="display: none;"></div> <!--error messages -->
+        <output name="counter" class="counter" for="tweet-text">140</output>
         <div>
           <button type="submit">Tweet</button>
         </div>
-          <output name="counter" class="counter" for="tweet-text">140</output>
       </form> 
           <!--This section represents an individual tweet -->
-          <section class="tweets-container">
+          <section class="tweets-container">    
             <article class="tweet">
               <header class="tweet-header">
                 <div class="image">

@@ -8,7 +8,7 @@
 import $ from 'jquery'
 window.$ = $
 import('./utility/init') 
-import { format, render, cancel, register } from 'timeago.js';
+import { format } from 'timeago';
 
 const renderTweets = function(tweets) {
   $('#tweets-container').empty();
@@ -44,13 +44,13 @@ function createTweetElement(tweet) {
 </article>
 `
 };
-
 renderTweets(data);
+
 $(document).ready(function() {
   function loadTweets() {
     $.ajax({
-      url: '/http://localhost:8080/',
-      method: 'POST',
+      url: '/tweets/',
+      method: 'GET',
       dataType: 'json',
       success: function(tweets) {
         renderTweets(tweets);
@@ -64,28 +64,31 @@ $(document).ready(function() {
   // Form submit handler
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
+    $('#error-message').slideUp(); // Hide error message before validation
+    $("<div>").text(textFromUser); //prevent CSS
     const tweetText = $('#tweet-text').val().trim();
     // Validation
-    let newTweet = $('<div class="tweet"></div>').text(tweetContent);
     if (!tweetText) {
-      return alert('Tweet content cannot be empty.');
+      return showError('Tweet content cannot be empty.');
     }
     if (tweetText.length > 140) {
-      return alert('Tweet content cannot exceed 140 characters.');
+      return showError('Tweet content cannot exceed 140 characters.');
     }
+
+    
     // If validation passes, proceed with form submission
     const tweetData = $(this).serialize();
     $.ajax({
-      url: '/http://localhost:8080/',
-      method: 'POST',
+      url: '/tweet/',
+      method: 'GET',
       data: tweetData,
       success: function() {
         loadTweets();
         $('#tweet-text').val(''); // Clear the form
         $('.counter').text('140'); // Reset the character counter
       },
-      error: function(err) {
-        console.error('Error submitting tweet:', err);
+      err: function(err) {
+        $('#error-message').text(message).slideDown();
       }
     });
   });
