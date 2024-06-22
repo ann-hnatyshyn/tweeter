@@ -34,35 +34,33 @@
 
   </head>
 
-  <body>
-
     <nav>
       <span class="title">tweeter</span>
       <div class= "new-tweet">Write a new tweet</div>
       <div class="fa-solid fa-angles-down"style="color: #ff0505"></div>
     </nav>
 
+  <body>
     <header>
       <div>
         <img src="/images/profile-hex.png">
       </div>
-      <br>
-      <div>
-        <h2>Ann H</h2>
+        <h2>Ann Maria</h2>
       </div>
     </header>
+  </body>
 
-    <main>
+    <main class="tweets-container">
       <form id="target"method="GET"action="/tweets/">
         <div>
           <textarea for="tweet-text"type="text"class="text-line"placeholder="What are you humming about?"></textarea>
         </div>
         <div class="timeago" datetime="2016-06-30 09:20:00"placeholder="last tweet"></div>
         <div id="error-message" class="error-message" style="display: none;"></div> <!--error messages -->
+      <div>
+        <button type="submit">Tweet</button>
         <output name="counter" class="counter" for="tweet-text">140</output>
-        <div>
-          <button type="submit">Tweet</button>
-        </div>
+      </div>
       </form> 
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -91,5 +89,5 @@
             <!-- End of Single Tweet -->
         </section>
       </main>
-  </body>
+ 
 </html>
