@@ -1,8 +1,6 @@
-import $ from 'jquery';
 const { JSDOM } = require('jsdom');
 const { window } = new JSDOM(`<!DOCTYPE html><html><body></body></html>`);
 const $ = require('jquery')(window);
-
 
 $(document).ready(function() {
   const maxChars = 140;
@@ -19,6 +17,8 @@ $(document).ready(function() {
       $('.counter').addClass('over-limit');
     } else {
       $('.counter').removeClass('over-limit');
+
+      console.log(charCount);
     }
   });
 });

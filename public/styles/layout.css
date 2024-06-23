@@ -11,57 +11,46 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   color: #545149;
   background-color: cornsilk;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
 }
 
-/* Tablet Styles */
-@media only screen and (min-width: 768px) {
-  .feature {
-    width: 33.3%;
-    line-height: 600px;
-  }
-
-  .content {
-    width: 66.7%;
-    float: right
-  }
-
-  .footer {
-    clear: right;
-  }
+main {
+  width: 90%;
+  font-size: 16px;
+  margin: 0 auto;
 }
-/* Desktop styles */
-@media only screen and (min-width: 1024px) {
-  .hero {
-    width: 33.3%;
-    float: left;
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+tweet-content {
+  flex: 3;
+  background: #eee;
+  padding: 1em;
+  margin-right: 1em;
+}
+
+/* Breakpoints */
+@media (max-width: 768px) {
+  nav {
+    display: none;
   }
 
-  .feature {
-    line-height: 300px;
+  header, footer {
+    padding: 0.5em;
   }
 
-  .menu {
-    background-color: #111111;
-    color: #f0f0f0;
-    text-align: left;
-  }
-
-  .tagline {
-    display: inline;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 12px;
-    color: tomato;
-    float: right;
-  }
-
-  .main {
-    max-width: 1024px;
-    font-size: 16px;
-    margin: 0 auto;
+  tweet-content {
+    padding: 0.5em;
   }
 }

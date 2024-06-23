@@ -5,16 +5,24 @@
  */
 
 
-import $ from 'jquery'
+
 const { JSDOM } = require('jsdom');
 const { window } = new JSDOM(`<!DOCTYPE html><html><body></body></html>`);
 const $ = require('jquery')(window);
-
-import('./utility/init') 
-import { format } from 'timeago';
-import * as timeago from 'timeago.js';
+const { format } = require('timeago');
 
 timeago(format);
+
+async function loadModule() {
+  try {
+    const module = await import('./utility/init');
+    module.someFunction();
+  } catch (error) {
+    console.error('Error loading the module:', error);
+  }
+}
+
+loadModule();
 
 function renderTweets (tweets) {
   $('#tweets-container').empty();
@@ -55,10 +63,12 @@ renderTweets(data);
 $(document).ready(function() {
   console.log('Document is ready');
   const maxChars = 140;
-  
+
   $('#tweet-text').on('input', function() {
     const charCount = $(this).val().length;
     const remainingChars = maxChars - charCount;
+
+    console.log(`Characters entered: ${charCount}, Remaining: ${remainingChars}`);
     
     // Update the counter
     $('.counter').text(remainingChars);

@@ -19,7 +19,9 @@ section.tweets-container article.tweet:hover {
 
 /*image */
 header.tweet-header .image img { 
-  border-radius: 50%;
+  border-radius: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 header.tweet-header {

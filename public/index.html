@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <title>Tweeter - Home Page</title>
 
@@ -24,13 +23,15 @@
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css"/>
  
 
+    
+
     <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="dist/timeago.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/public/scripts/client.js"></script>
-    <script type="text/javascript" src="/public/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
   </head>
 
@@ -51,7 +52,7 @@
   </body>
 
     <main class="tweets-container">
-      <form id="target"method="GET"action="/tweets/">
+      <form id="target"method="POST"action="/tweets/">
         <div>
           <textarea for="tweet-text"type="text"class="text-line"placeholder="What are you humming about?"></textarea>
         </div>
@@ -59,18 +60,15 @@
         <div id="error-message" class="error-message" style="display: none;"></div> <!--error messages -->
       <div>
         <button type="submit">Tweet</button>
-        <output name="counter" class="counter" for="tweet-text">140</output>
+        <output class="counter" name="counter" for="tweet-text">140</output>
       </div>
       </form> 
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="client.js"></script>
           <!--This section represents an individual tweet -->
           <section class="tweets-container">    
             <article class="tweet">
               <header class="tweet-header">
                 <div class="image">
-                  <img src="https://via.placeholder.com/50" alt="User Image">
+                  <img src="https://placebear.com/640/360" alt="User Image">
                 </div>
                 <div class="tweet-header-text">
                   <h3>Username</h3>
