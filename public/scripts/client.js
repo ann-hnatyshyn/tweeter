@@ -73,7 +73,6 @@ $(document).ready(function() {
     // Update the counter
     $('.counter').text(remainingChars);
     
-    // If the character count exceeds the limit, change the color of the counter
     if (remainingChars < 0) {
       $('.counter').addClass('over-limit');
     } else {

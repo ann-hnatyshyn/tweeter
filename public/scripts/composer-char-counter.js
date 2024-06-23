@@ -12,7 +12,6 @@ $(document).ready(function() {
     // Update the counter
     $('.counter').text(remainingChars);
     
-    // If the character count exceeds the limit, add a class to change color to red
     if (remainingChars < 0) {
       $('.counter').addClass('over-limit');
     } else {
