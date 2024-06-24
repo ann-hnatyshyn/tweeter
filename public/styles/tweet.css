@@ -1,58 +1,54 @@
 
-/*Tweet container */
-section.tweets-container {
-  margin-top: 20px;
-  padding: 10px;
-  display: flex;
-}
-
-section.tweets-container article.tweet {
-  border: 5px solid black;
+article.tweets-container {
+  border: 3px solid black;
   border-radius: 10px;
   margin: 10px 0;
-  padding: 15px;
+  padding: 20px;
 }
 
-section.tweets-container article.tweet:hover {
+article.tweets-container:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-/*image */
-header.tweet-header .image img { 
-  border-radius: 100%;
+header.tweet-header {
+  background-color: cornsilk;
+  background-image: none;
+}
+
+img.image { 
   display: flex;
   justify-content: flex-start;
 }
 
-header.tweet-header {
+span.username {
   display: flex;
-  align-items: center;
-  background-color: cornsilk;
-  background-image: none;
-}
-  
-header.tweet-header .image {
-  margin-right: 10px;
+  justify-content: flex-start;
 }
 
-header.tweet-header-text {
-  color: #545149;   
+span.timestamp {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
 }
 
-header.tweet-header-text h3, header.tweet-header-text span {
-  margin: 0;
-}
 
-/* Tweet content */
 p.tweet-content {
-  margin: 10px 0;
+  display: flex;
+  justify-content: center;
   font-size: 16px;
 }
 
-/* Footer - icons */
-footer.tweet-footer .icons {
+/*time since last tweet*/
+div.timeago {
+  display: flex;
+  color:	#545149;
+  font-size: 20px;
+  font-family:'Bungee', sans-serif;
+  margin: 10px 10px;
+  justify-content: flex-start;
+}
+
+/* Footer*/
+.icons {
   display: flex;
   justify-content: flex-end;
   color: #4056A1;     
@@ -60,6 +56,6 @@ footer.tweet-footer .icons {
   font-size: small;
 }
 
-footer.tweet-footer .icons i:hover {
+.icons i:hover {
   color: #FFD700;
 }

@@ -1,85 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Tweeter - Home Page</title>
 
+    <!-- External Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital@0;1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"rel="stylesheet"/>
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      rel="stylesheet"
+    />
+
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/tweet.css" type="text/css"/>
- 
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="dist/timeago.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/2.0.2/timeago.min.js" integrity="sha512-sl01o/gVwybF1FNzqO4NDRDNPJDupfN0o2+tMm4K2/nr35FjGlxlvXZ6kK6faa9zhXbnfLIXioHnExuwJdlTMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- App JS -->
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
   </head>
+
+  <body>
+    <!-- Top Nav Bar -->
     <nav>
       <span class="title">tweeter</span>
-      <div class= "new-tweet">Write a new tweet</div>
-      <div class="fa-solid fa-angles-down"style="color: #ff0505"></div>
+      <div class="new-tweet">Write a new tweet</div>
+      <div class="fa-solid fa-angles-down" style="color: #ff0505"></div>
     </nav>
-  <body>
-    <header>
+
+    <!-- Header -->
+    <header class="header">
       <div>
-        <img src="/images/profile-hex.png">
+        <img src="/images/profile-hex.png" />
       </div>
-        <h2>Ann Maria</h2>
-      </div>
+      <h2>Ann Maria</h2>
     </header>
+
+    <main class="container">
+      <section>
+        <form method="get" action="/tweets">
+          <div>
+            <textarea
+              class="text-line"
+              id="tweet-text"
+              type="text"
+              placeholder="What are you humming about?"
+            ></textarea>
+          </div>
+          <div
+            class="error-message"
+            id="error-message"
+            style="display: none"
+          ></div>
+          <!--error messages -->
+          <div>
+            <button type="submit">Tweet</button>
+            <output class="counter" name="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section id="tweets-container"></section>
+    </main>
   </body>
-    <main class="tweets-container">
-      <form id="target"method="post"action="/tweets">
-        <div>
-          <textarea for="tweet-text"type="text"class="text-line"placeholder="What are you humming about?"></textarea>
-        </div>
-        <div class="timeago" datetime="2016-06-30 09:20:00"placeholder="last tweet"></div>
-        <div id="error-message" class="error-message" style="display: none;"></div> <!--error messages -->
-      <div>
-        <button type="submit">Tweet</button>
-        <output class="counter" name="counter" for="tweet-text">140</output>
-      </div>
-      </form> 
-          <!--This section represents an individual tweet -->
-          <section class="tweets-container">    
-            <article class="tweet">
-              <header class="tweet-header">
-                <div class="image">
-                  <img src="https://placebear.com/640/360" alt="User Image">
-                </div>
-                <div class="tweet-header-text">
-                  <h3>Username</h3>
-                  <span>@userHandle</span>
-                </div>
-              </header>
-              <p class="tweet-content">This is the content of the tweet.</p>
-              <footer class="tweet-footer">
-                <div class="icons">
-                  <i class="fa-solid fa-flag"></i>
-                  <i class="fa-solid fa-retweet"></i>
-                  <i class="fa-solid fa-heart"></i>
-                </div>
-              </footer>
-            </article>
-            <!-- End of Single Tweet -->
-        </section>
-      </main>
- 
 </html>

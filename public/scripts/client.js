@@ -3,35 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const bodyParser = require('body-parser')
-const { JSDOM } = require('jsdom');
-const { window } = new JSDOM(`<!DOCTYPE html><html><body></body></html>`);
-const $ = require('jquery')(window);
-const { format } = require('timeago');
 
-timeago(format);
 
-async function loadModule() {
-  try {
-    const module = await import('./utility/init');
-    module.someFunction();
-  } catch (error) {
-    console.error('Error loading the module:', error);
-  }
-}
-
-loadModule();
-
-function renderTweets (tweets) {
-  $('#tweets-container').empty();
-  for (const tweet of tweets) {
-    const $tweetElement = createTweetElement(tweet);
-    $('#tweets-container').append($tweetElement);
-  };
-};
 
 function createTweetElement(tweet) {
-  const timeAgo = timeAgo.format(new Date(tweet.created_at));
+  const timeAgo = timeago().format(tweet.created_at);
   return `
   <article class="tweet">
 <header>
@@ -40,7 +16,7 @@ function createTweetElement(tweet) {
   </div>
   <div class="tweet-header-text">
     <h2>${tweet.user.name}</h2>
-    <p>@${tweet.user.handle} · ${tweet.created_at}</p>
+    <p>${tweet.user.handle}</p>
   </div>
 </header>
 <p>${tweet.content.text}</p>
@@ -52,48 +28,35 @@ function createTweetElement(tweet) {
    <i name="heart"class="fa-solid fa-heart"></i>
   </div>
 </footer>
-</section>
 </article>
 `
 };
-renderTweets(data);
 
-$(document).ready(function() {
-  console.log('Document is ready');
-  const maxChars = 140;
 
-  $('#tweet-text').on('input', function() {
-    const charCount = $(this).val().length;
-    const remainingChars = maxChars - charCount;
+function renderTweets (tweets) {
+  $('#tweets-container').empty();
+  for (const tweet of tweets) {
+    const $tweetElement = createTweetElement(tweet);
+    $('#tweets-container').append($tweetElement);
+  };
+};
 
-    console.log(`Characters entered: ${charCount}, Remaining: ${remainingChars}`);
-    
-    // Update the counter
-    $('.counter').text(remainingChars);
-    
-    if (remainingChars < 0) {
-      $('.counter').addClass('over-limit');
-    } else {
-      $('.counter').removeClass('over-limit');
+function loadTweets() {
+  $.ajax({
+    url: '/tweets/',
+    method: 'GET',
+    dataType: 'json',
+    success: function(tweets) {
+      console.log(tweets);
+      renderTweets(tweets);
+    },
+    error: function(err) {
+      console.error('Error fetching tweets:', err);
     }
-  })
-});
+  });
+}
 
 $(document).ready(function() {
-  function loadTweets() {
-    $.ajax({
-      url: '/tweets/',
-      method: 'GET',
-      dataType: 'json',
-      success: function(tweets) {
-        renderTweets(tweets);
-      },
-      error: function(err) {
-        console.error('Error fetching tweets:', err);
-      }
-    });
-  }
-  loadTweets();
 
   // Form submit handler
   $('#tweet-form').on('submit', function(event) {
@@ -102,10 +65,10 @@ $(document).ready(function() {
     $('#error-message').slideUp(); // Hide error message before validation
     $("<div>").text(textFromUser); //prevent CSS
     
-    const tweetText = $('#tweet-text').val().trim();
+    const tweetText = $('#tweet-text').val();
 
     // Validation
-    if (!tweetText) {
+    if (!tweetText || !tweetText.trim()) {
       return showError('Tweet content cannot be empty.');
     }
     if (tweetText.length > 140) {
@@ -127,6 +90,5 @@ $(document).ready(function() {
       }
     });
   });
+  loadTweets();
 });
-
-

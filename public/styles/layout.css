@@ -25,32 +25,3 @@ main {
   font-size: 16px;
   margin: 0 auto;
 }
-
-/* Basic Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-tweet-content {
-  flex: 3;
-  background: #eee;
-  padding: 1em;
-  margin-right: 1em;
-}
-
-/* Breakpoints */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-  }
-
-  header, footer {
-    padding: 0.5em;
-  }
-
-  tweet-content {
-    padding: 0.5em;
-  }
-}

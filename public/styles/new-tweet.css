@@ -1,6 +1,6 @@
 
 /*text line*/
-textarea {
+textarea.text-line {
   border: none;
   outline: none;
   border-bottom: 2px solid black;
@@ -38,18 +38,7 @@ output.counter {
   align-items: flex-start;
 }
 
-/*time since last tweet*/
-div.timeago {
-  display: flex;
-  color:	#545149;
-  font-size: 20px;
-  font-family:'Bungee', sans-serif;
-  margin: 10px 10px;
-  justify-content: flex-start;
-}
-
-/*error message*/
-div.error {
+div.error-message {
   color: #d9534f; 
   background-color: #f2dede; 
   border: 1px solid #ebccd1;
@@ -57,9 +46,5 @@ div.error {
   border-radius: 5px;
   display: none;
   font-size: 14px;
-  }
-  
-  div.error-active {
-    padding: 0.3em;
-    display: none;
+  padding: 0.3em;
   }
