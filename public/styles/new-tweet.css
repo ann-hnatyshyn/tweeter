@@ -38,7 +38,7 @@ output.counter {
   align-items: flex-start;
 }
 
-div.error-message {
+#error-message {
   color: #d9534f; 
   background-color: #f2dede; 
   border: 1px solid #ebccd1;

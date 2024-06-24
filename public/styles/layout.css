@@ -25,3 +25,25 @@ main {
   font-size: 16px;
   margin: 0 auto;
 }
+
+/* Responsive CSS Design */
+
+@media (max-width: 1024px) {
+
+}
+
+@media (min-width: 768px){
+
+}
+
+nav {
+
+}
+
+header {
+
+}
+
+main.container {
+
+}

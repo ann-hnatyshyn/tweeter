@@ -4,19 +4,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-
 function createTweetElement(tweet) {
   const timeAgo = timeago().format(tweet.created_at);
   return `
   <article class="tweet">
 <header>
-  <div class="image">
+  <div>
     <img src="${tweet.user.avatars}">
   </div>
-  <div class="tweet-header-text">
+  <div class="tweet-header-text"
+    <h3>${tweet.user.handle}</h3>
     <h2>${tweet.user.name}</h2>
-    <p>${tweet.user.handle}</p>
   </div>
 </header>
 <p>${tweet.content.text}</p>
