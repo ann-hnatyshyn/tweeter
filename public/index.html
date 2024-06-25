@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <title>Tweeter - Home Page</title>
 
@@ -36,7 +36,12 @@
 
     <!-- External JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/2.0.2/timeago.min.js" integrity="sha512-sl01o/gVwybF1FNzqO4NDRDNPJDupfN0o2+tMm4K2/nr35FjGlxlvXZ6kK6faa9zhXbnfLIXioHnExuwJdlTMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/2.0.2/timeago.min.js"
+      integrity="sha512-sl01o/gVwybF1FNzqO4NDRDNPJDupfN0o2+tMm4K2/nr35FjGlxlvXZ6kK6faa9zhXbnfLIXioHnExuwJdlTMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <!-- App JS -->
     <script
@@ -51,7 +56,7 @@
     <nav>
       <span class="title">tweeter</span>
       <div class="new-tweet">Write a new tweet</div>
-      <div class="fa-solid fa-angles-down" style="color: #ff0505"></div>
+      <div class="fa-solid fa-angles-down"style="color: #ff0505"></div>
     </nav>
 
     <!-- Header -->
@@ -63,21 +68,19 @@
     </header>
 
     <main class="container">
-      <section>
-        <form method="get" action="/tweets">
+      <section class="new-tweet">
+        <form class="tweet-form">
+            <!--error messages -->
+            <div id="error-message" class="error-message"></div>
           <div>
             <textarea
+              name="text"
               class="text-line"
               id="tweet-text"
               type="text"
               placeholder="What are you humming about?"
             ></textarea>
           </div>
-          <div
-            id="error-message"
-            style="display: none"
-          ></div>
-          <!--error messages -->
           <div>
             <button type="submit">Tweet</button>
             <output class="counter" name="counter" for="tweet-text">140</output>

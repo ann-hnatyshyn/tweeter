@@ -9,13 +9,11 @@ function createTweetElement(tweet) {
   return `
   <article class="tweet">
 <header>
-  <div>
-    <img src="${tweet.user.avatars}">
-  </div>
   <div class="tweet-header-text"
     <h3>${tweet.user.handle}</h3>
     <h2>${tweet.user.name}</h2>
   </div>
+  <img src="${tweet.user.avatars}">
 </header>
 <p>${tweet.content.text}</p>
 <footer>
@@ -43,50 +41,52 @@ function loadTweets() {
   $.ajax({
     url: '/tweets/',
     method: 'GET',
-    dataType: 'json',
-    success: function(tweets) {
-      console.log(tweets);
-      renderTweets(tweets);
+    dataType: 'JSON',
+
+    success: function(tweet) {
+      renderTweets(tweet);
     },
-    error: function(err) {
-      console.error('Error fetching tweets:', err);
+    err: function(err) {
+      $('.error-message').text("please type your tweet again").slideDown();
     }
   });
 }
 
+
 $(document).ready(function() {
 
-  // Form submit handler
-  $('#tweet-form').on('submit', function(event) {
+  $('.tweet-form').on('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
-    $('#error-message').text(''); //clear the error message
-    $('#error-message').slideUp(); // Hide error message before validation
-    $("<div>").text(textFromUser); //prevent CSS
-    
-    const tweetText = $('#tweet-text').val();
-
+    $('.error-message').text(''); //clear the error message
+    $('.error-message').slideUp(); // Hide error message before validation
+   
     // Validation
-    if (!tweetText || !tweetText.trim()) {
-      return showError('Tweet content cannot be empty.');
+    const tweetText = $('#tweet-text').val();
+    if (!tweetText) {
+      return $('#error-message').text('Tweet content cannot be empty.').slideDown();
     }
     if (tweetText.length > 140) {
-      return showError('Tweet content cannot exceed 140 characters.');
+     return $('#error-message').text('Tweet content cannot exceed 140 characters.').slideDown();
     }
+
     // If validation passes, proceed with form submission
     const tweetData = $(this).serialize();
+
     $.ajax({
-      url: '/tweet/',
-      method: 'GET',
+      url: '/tweets/',
+      method: 'POST',
       data: tweetData,
+
       success: function() {
         loadTweets();
         $('#tweet-text').val(''); // Clear the form
         $('.counter').text('140'); // Reset the character counter
       },
-      err: function(err) {
-        $('#error-message').text("please type your tweet again").slideDown();
+      err: function () {
+        $('#error-message').text('Your error message here').slideDown();
       }
     });
   });
   loadTweets();
 });
+

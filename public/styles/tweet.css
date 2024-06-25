@@ -1,33 +1,37 @@
 
-article.tweet {
+.tweet {
   border: 3px solid black;
   border-radius: 10px;
   margin: 10px 0;
   padding: 20px;
 }
 
-article.tweet:hover {
+.tweet:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-div.tweet-header-text h2 {
-  display: flex;
-  justify-content: flex-start;
+.over-limit {
+  color: red;
 }
 
-div.tweet-header-text h3{
+.tweet-header-text h3{
   display: flex;
   justify-content: flex-end;
 }
 
+.tweet-header-text h2 {
+ display: flex;
+ flex-direction: row;
+}
+
 /*time since last tweet*/
-span.timeago {
+.timeago {
   display: flex;
   color:	#545149;
   font-size: 20px;
   font-family:'Bungee', sans-serif;
   margin: 10px 10px;
-  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 /* Footer */
