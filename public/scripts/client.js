@@ -9,11 +9,11 @@ function createTweetElement(tweet) {
   return `
   <article class="tweet">
 <header>
-  <div class="tweet-header-text"
-    <h3>${tweet.user.handle}</h3>
+  <div class="tweet-header-text">
+    <img src="${tweet.user.avatars}">
     <h2>${tweet.user.name}</h2>
+    <h3>${tweet.user.handle}</h3>
   </div>
-  <img src="${tweet.user.avatars}">
 </header>
 <p>${tweet.content.text}</p>
 <footer>

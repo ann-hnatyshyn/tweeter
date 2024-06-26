@@ -25,36 +25,10 @@ main {
 
 /* Responsive CSS Design*/
 
-/* Desktop styles */
-@media only screen and (min-width: 1024px) {
-  .hero {
-    width: 33.3%;
-    float: left;
-  }
-
-  .feature {
-    line-height: 300px;
-  }
-
-  .menu {
-    background-color: #111111;
-    color: #f0f0f0;
-    text-align: left;
-  }
-
-  .tagline {
-    display: inline;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 12px;
-    color: tomato;
-    float: right;
-  }
-
-  .main {
-    max-width: 1024px;
-    font-size: 16px;
-    margin: 0 auto;
+/* Mobile */
+@media only screen and (min-width: 400px) and (max-width: 768px) {
+  nav {
+    background-color: #eb8100;;
   }
 }
 
@@ -70,28 +44,37 @@ main {
     float: right
   }
 
+  nav {
+    background-color: #eb8100;
+    color: #f0f0f0 ;
+    text-align: left;
+  }
+
+  .new-tweet .title{
+    display: inline;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    color: tomato;
+    float: right;
+  }
+
   .footer {
     clear: right;
   }
 }
 
-/* Mobile */
-@media only screen and (min-width: 320px) and (max-width: 768px) {
-  nav {
-    background-color: transparent;
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  header.header {
+    width: 33.3%;
+    float: left;
   }
 
-  .header {
-    flex-direction: column;
-    align-items: center;
+  .main {
+    max-width: 1024px;
+    font-size: 16px;
+    margin: 0 auto;
   }
 
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  textarea {
-    width: 50%;
-  }
 }

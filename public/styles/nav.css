@@ -1,6 +1,6 @@
 
 nav {
-  height: 120px;
+  height: 100px;
   width: 100%;
   padding: 1.5em;
   background-color: #4056A1;
@@ -10,10 +10,9 @@ nav {
 
 /*Tweeter title*/
 span.title {
-  display: flex;
   font-family: Bungee;
   color: #FFFFFF;
-  justify-content: flex-start;
+  font-size: 24px;
 }
 
 /*write new tweet text*/
