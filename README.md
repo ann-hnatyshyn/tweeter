@@ -19,5 +19,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-!["Screenshot of error message, empty"](https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/error-message-empty.png)
-!["Screenshot of error message, character limit"](https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/error-message-exceed-char-limit.png)
+!["Screenshot of Desktop layout version"] https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/desktop-layout.png
+
+!["Screenshot of Tablet/Mobile layout version"] https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/tablet-layout.png
+
+!["Screenshot of error message, empty"] https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/error-message1.png
+
+!["Screenshot of error message, character limit"] https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/error-message2.png
