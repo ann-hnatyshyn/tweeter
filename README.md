@@ -16,3 +16,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+
+!["Screenshot of error message, empty"](https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/error-message-empty.png)
+!["Screenshot of error message, character limit"](https://github.com/ann-hnatyshyn/tweeter/blob/master/docs/error-message-exceed-char-limit.png)
